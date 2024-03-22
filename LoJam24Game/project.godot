@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Lo Jam 24"
 run/main_scene="res://Scenes/test_scene.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
