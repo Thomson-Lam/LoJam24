@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # HELLO THERE THIS IS A CHANGE IVE MADE TO THE SCRIPT!!
-
+# Thomson is trying to push 
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
