@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dwtao6k1jgatp"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 358.0
+offset_top = -2.0
+offset_right = 842.0
+offset_bottom = 267.0
+theme_override_font_sizes/normal_font_size = 44
+text = "THIS IS A TEST SCENE!!!"
+tab_size = 9
