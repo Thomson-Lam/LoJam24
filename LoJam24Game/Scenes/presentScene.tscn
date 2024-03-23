@@ -43,6 +43,9 @@ position = Vector2(6.12903, 6.12903)
 scale = Vector2(0.251613, 0.251613)
 texture = ExtResource("2_2y6g5")
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position_smoothing_enabled = true
+
 [node name="WhiteSquare" type="Sprite2D" parent="."]
 position = Vector2(259, 50)
 texture = ExtResource("2_2y6g5")
