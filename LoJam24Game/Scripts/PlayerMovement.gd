@@ -8,7 +8,8 @@ var inPresent = true
 
 @onready var camera := get_viewport().get_camera_2d()
 
-func _ready():
+func _enter_tree():
+	camera = get_viewport().get_camera_2d()
 	pass
 
 func _physics_process(delta):

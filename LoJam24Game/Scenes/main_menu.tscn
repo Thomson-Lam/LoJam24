@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkygsrk277qve"]
 
-[ext_resource type="Script" path="res://Scenes/Button.gd" id="1_hqdpg"]
+[ext_resource type="Script" path="res://Scripts/Button.gd" id="1_hqdpg"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_s7aeb"]
 
