@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://dwtao6k1jgatp"]
+[gd_scene load_steps=4 format=3 uid="uid://dwtao6k1jgatp"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_ewv3d"]
+[ext_resource type="Texture2D" uid="uid://c3l6xhtg7dyxq" path="res://Art/White Square.png" id="2_2y6g5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7tq1"]
+size = Vector2(16, 16)
 
 [node name="TestScene" type="Node2D"]
 
@@ -12,3 +18,14 @@ offset_bottom = 267.0
 theme_override_font_sizes/normal_font_size = 44
 text = "THIS IS A TEST SCENE!!!"
 tab_size = 9
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(76, 40)
+scale = Vector2(3.1, 3.1)
+script = ExtResource("1_ewv3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_b7tq1")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_2y6g5")
