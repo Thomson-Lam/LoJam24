@@ -12,20 +12,19 @@ script = ExtResource("1_xnokb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 358.0
-offset_top = -2.0
-offset_right = 842.0
-offset_bottom = 267.0
-theme_override_font_sizes/normal_font_size = 44
-text = "Present Scene"
-tab_size = 9
-metadata/_edit_use_anchors_ = true
+[node name="SwitchOverlay" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+modulate = Color(0.192936, 0.168774, 0.139482, 1)
+visibility_layer = 512
+position = Vector2(573, 325)
+scale = Vector2(105.22, 58.7607)
+texture = ExtResource("2_2y6g5")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("switchOverlay")]
 position = Vector2(76, 40)
 scale = Vector2(3.1, 3.1)
 script = ExtResource("1_ewv3d")
+switchOverlay = NodePath("../CanvasLayer/SwitchOverlay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_b7tq1")
@@ -47,7 +46,63 @@ texture = ExtResource("2_2y6g5")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.15
+drag_right_margin = 0.1
+drag_bottom_margin = 0.15
+editor_draw_drag_margin = true
 
-[node name="WhiteSquare" type="Sprite2D" parent="."]
-position = Vector2(259, 50)
+[node name="PastArea" type="Node2D" parent="."]
+position = Vector2(10000, 0)
+
+[node name="Building" type="Node2D" parent="PastArea"]
+
+[node name="WhiteSquare" type="Sprite2D" parent="PastArea/Building"]
+position = Vector2(252, 2)
+scale = Vector2(1.76, 15.64)
+texture = ExtResource("2_2y6g5")
+
+[node name="WhiteSquare2" type="Sprite2D" parent="PastArea/Building"]
+position = Vector2(-197, 2)
+scale = Vector2(1.76, 15.64)
+texture = ExtResource("2_2y6g5")
+
+[node name="WhiteSquare3" type="Sprite2D" parent="PastArea/Building"]
+position = Vector2(149, 12)
+scale = Vector2(1.76, 1.76)
+texture = ExtResource("2_2y6g5")
+
+[node name="WhiteSquare4" type="Sprite2D" parent="PastArea/Building"]
+position = Vector2(-120, -51)
+scale = Vector2(1.76, 1.76)
+texture = ExtResource("2_2y6g5")
+
+[node name="WhiteSquare5" type="Sprite2D" parent="PastArea/Building"]
+position = Vector2(-67, 88)
+scale = Vector2(1.76, 1.76)
+texture = ExtResource("2_2y6g5")
+
+[node name="Building" type="Node2D" parent="."]
+
+[node name="WhiteSquare" type="Sprite2D" parent="Building"]
+position = Vector2(252, 2)
+scale = Vector2(1.76, 15.64)
+texture = ExtResource("2_2y6g5")
+
+[node name="WhiteSquare2" type="Sprite2D" parent="Building"]
+position = Vector2(-197, 2)
+scale = Vector2(1.76, 15.64)
+texture = ExtResource("2_2y6g5")
+
+[node name="WhiteSquare3" type="Sprite2D" parent="Building"]
+position = Vector2(149, 12)
+scale = Vector2(1.76, 1.76)
+texture = ExtResource("2_2y6g5")
+
+[node name="WhiteSquare4" type="Sprite2D" parent="Building"]
+position = Vector2(-120, -51)
+scale = Vector2(1.76, 1.76)
 texture = ExtResource("2_2y6g5")

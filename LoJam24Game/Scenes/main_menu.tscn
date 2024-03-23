@@ -11,14 +11,15 @@
 [node name="Button" type="Node2D" parent="CanvasLayer"]
 
 [node name="StartButton" type="Button" parent="CanvasLayer/Button"]
-offset_left = 59.0
-offset_top = 18.0
-offset_right = 323.0
-offset_bottom = 49.0
+offset_left = 438.0
+offset_top = 133.0
+offset_right = 1323.0
+offset_bottom = 315.0
 scale = Vector2(0.285749, 0.495714)
 pivot_offset = Vector2(-25, -11.9403)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
-text = "Button Test"
+theme_override_font_sizes/font_size = 166
+text = "PLAY"
 icon = SubResource("CanvasTexture_s7aeb")
 script = ExtResource("1_hqdpg")
 

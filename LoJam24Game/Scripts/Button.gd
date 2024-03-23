@@ -12,7 +12,8 @@ func _process(delta):
 
 
 func _on_pressed():
-	var scene = load("res://Scenes/presentScene.tscn")	
-	var instance = scene.instantiate()
-	add_child(instance)
+	get_tree().change_scene_to_file("res://Scenes/presentScene.tscn")
+	#var scene = load("res://Scenes/presentScene.tscn")	
+	#var instance = scene.instantiate()
+	#add_child(instance)
 	
