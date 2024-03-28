@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://w2e8rvxtslmc"]
+
+[ext_resource type="PackedScene" uid="uid://cavgmjple7jio" path="res://Scenes/Game/Game.tscn" id="2_e6ttk"]
+[ext_resource type="PackedScene" uid="uid://b7xgcw5ah8cbq" path="res://Scenes/UI/UI.tscn" id="3_uxdvn"]
+
+[sub_resource type="GDScript" id="GDScript_a0egc"]
+script/source = "extends Node2D
+
+@export var ui: UI
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+	# Connect signals with UI bar here, and object function to send signal.
+	# if ___.is_connected(ui._triggered_signal)
+		# ____.connect(ui._triggered_signal)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="World" type="Node2D" node_paths=PackedStringArray("ui")]
+script = SubResource("GDScript_a0egc")
+ui = NodePath("Ui")
+
+[node name="Game" parent="." instance=ExtResource("2_e6ttk")]
+
+[node name="Ui" parent="." instance=ExtResource("3_uxdvn")]
