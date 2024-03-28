@@ -11,7 +11,9 @@ var jumpTimer = 0
 var maxJumpTimer = 1
 var chargingJump = false
 var newJump = 0
+var holdingRight = false
 
+@onready var landingSpot: Node2D = $LandingSpot
 @onready var camera := get_viewport().get_camera_2d()
 
 func _ready():
@@ -19,6 +21,7 @@ func _ready():
 	rayCastMiddle = find_child("RayCastMiddle")
 	rayCastRight = find_child("RayCastRight")
 	rayCastLeft = find_child("RayCastLeft")
+	landingSpot = get_parent().get_node("LandingSpot")
 	pass
 
 func _physics_process(delta):
@@ -26,11 +29,22 @@ func _physics_process(delta):
 	
 func _process(delta):
 	if chargingJump and jumpTimer < 1:
-		jumpTimer += delta
+		jumpTimer += delta * 1.2
 		
 	if jumpTimer > 1:
 		jumpTimer = 1
+	if chargingJump:
+		landingSpot.visible = true
+		if holdingRight:
+			var newVector = Vector2(position.x + (jumpTimer * 125), position.y)
+			landingSpot.global_position = newVector
+		elif not holdingRight:
+			var newVector = Vector2(position.x - (jumpTimer * 125), position.y)
+			landingSpot.global_position = newVector
 	
+		
+
+		
 func _input(event):
 	newJump = jumpTimer * jumpHeight + 100
 	
@@ -39,21 +53,26 @@ func _input(event):
 			chargingJump = true
 		elif event.is_action_pressed("right"):
 			chargingJump = true
+			holdingRight = true
 		elif event.is_action_pressed("left"):
 			chargingJump = true
 			
 		if event.is_action_released("up"):
 			apply_central_impulse(Vector2(0, -newJump * 1.5))
 			chargingJump = false
+			holdingRight = false
 			jumpTimer = 0
 		elif event.is_action_released("right"):
 			apply_central_impulse(Vector2(newJump / 3, -newJump))
 			chargingJump = false
+			holdingRight = false
 			jumpTimer = 0
 		elif event.is_action_released("left"):
 			apply_central_impulse(Vector2(-newJump / 3, -newJump))	
 			chargingJump = false
+			holdingRight = false
 			jumpTimer = 0
+		#landingSpot.global_position = position
 			
 			
 func CheckGround():
