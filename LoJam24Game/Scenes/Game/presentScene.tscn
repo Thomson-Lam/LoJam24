@@ -121,3 +121,18 @@ debug_color = Color(0.898039, 0, 0.780392, 0.419608)
 [node name="Sprite2D" type="Sprite2D" parent="Level/Area2D5/CollisionShape2D"]
 position = Vector2(-1.9744e-07, 0.5)
 texture = ExtResource("2_plhkd")
+
+[node name="Top Barrier" type="StaticBody2D" parent="Level"]
+position = Vector2(-1, -131)
+scale = Vector2(193.12, 1)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Top Barrier"]
+position = Vector2(-0.0257338, -0.5)
+shape = SubResource("RectangleShape2D_1qngg")
+one_way_collision_margin = 0.0
+debug_color = Color(0.898039, 0, 0.780392, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level/Top Barrier/CollisionShape2D"]
+position = Vector2(-1.9744e-07, 0.5)
+texture = ExtResource("2_plhkd")
