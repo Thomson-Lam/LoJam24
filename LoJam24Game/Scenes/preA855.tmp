@@ -13,7 +13,6 @@ size = Vector2(15.8003, 13)
 
 [node name="Player" type="RigidBody2D" parent="."]
 collision_layer = 3
-lock_rotation = true
 script = ExtResource("1_ewv3d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -23,13 +22,7 @@ shape = SubResource("RectangleShape2D_qwlme")
 texture = ExtResource("2_2y6g5")
 
 [node name="Camera2D" type="Camera2D" parent="Player/CollisionShape2D"]
-zoom = Vector2(2.445, 2.445)
 position_smoothing_enabled = true
-
-[node name="RayCast2D" type="RayCast2D" parent="Player/CollisionShape2D"]
-position = Vector2(0, 7)
-target_position = Vector2(0, 5.19)
-collide_with_areas = true
 
 [node name="Area2D" type="StaticBody2D" parent="."]
 position = Vector2(-1, 92)
