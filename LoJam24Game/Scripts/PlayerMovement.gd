@@ -12,6 +12,8 @@ var maxJumpTimer = 1
 var chargingJump = false
 var newJump = 0
 var holdingRight = false
+var belowObject
+var belowObjectVelocity
 
 @onready var landingSpot: Node2D = $LandingSpot
 @onready var camera := get_viewport().get_camera_2d()
@@ -22,12 +24,28 @@ func _ready():
 	rayCastRight = find_child("RayCastRight")
 	rayCastLeft = find_child("RayCastLeft")
 	landingSpot = get_parent().get_node("LandingSpot")
-	pass
 
 func _physics_process(delta):
-	direction = Input.get_vector("left", "right", "up", "down")
+	pass
+		
+		
+func _integrate_forces(state):
+	if rayCastRight.is_colliding(): 
+		belowObject = rayCastRight.get_collider()
+	elif rayCastLeft.is_colliding():
+		belowObject = rayCastLeft.get_collider()
+	elif rayCastMiddle.is_colliding():
+		belowObject = rayCastMiddle.get_collider()
+	else:
+		belowObject = null
+		belowObjectVelocity = Vector2.ZERO
+		
+	if belowObject != null:
+		if belowObject.get_class() == "RigidBody2D" && belowObject.has_method("IsMoving"):
+			position.x = belowObject.IsMoving()
 	
 func _process(delta):
+	direction = Input.get_vector("left", "right", "up", "down")
 	if chargingJump and jumpTimer < 1:
 		jumpTimer += delta * 1.2
 		
@@ -41,7 +59,8 @@ func _process(delta):
 		elif not holdingRight:
 			var newVector = Vector2(position.x - (jumpTimer * 125), position.y)
 			landingSpot.global_position = newVector
-	
+	else:
+		landingSpot.visible = false
 		
 
 		
@@ -73,7 +92,9 @@ func _input(event):
 			holdingRight = false
 			jumpTimer = 0
 		#landingSpot.global_position = position
-			
+	else:
+		chargingJump = false
+		jumpTimer = 0
 			
 func CheckGround():
 	if rayCastMiddle.is_colliding():
@@ -83,4 +104,5 @@ func CheckGround():
 	if rayCastLeft.is_colliding():
 		return true
 	return false
+
 
