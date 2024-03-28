@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwtao6k1jgatp"]
 
-[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_ewv3d"]
-[ext_resource type="Texture2D" uid="uid://c3l6xhtg7dyxq" path="res://Art/White Square.png" id="2_2y6g5"]
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_ssmvg"]
+[ext_resource type="Texture2D" uid="uid://c3l6xhtg7dyxq" path="res://Assets/Sprites/White Square.png" id="2_plhkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qwlme"]
 size = Vector2(16, 16)
@@ -14,13 +14,13 @@ size = Vector2(15.8003, 13)
 [node name="Player" type="RigidBody2D" parent="."]
 collision_layer = 3
 lock_rotation = true
-script = ExtResource("1_ewv3d")
+script = ExtResource("1_ssmvg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_qwlme")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/CollisionShape2D"]
-texture = ExtResource("2_2y6g5")
+texture = ExtResource("2_plhkd")
 
 [node name="Camera2D" type="Camera2D" parent="Player/CollisionShape2D"]
 zoom = Vector2(2.445, 2.445)
@@ -44,4 +44,4 @@ debug_color = Color(0.898039, 0, 0.780392, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
 position = Vector2(-1.9744e-07, 0.5)
-texture = ExtResource("2_2y6g5")
+texture = ExtResource("2_plhkd")

@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://cavgmjple7jio"]
+[gd_scene load_steps=2 format=3 uid="uid://cavgmjple7jio"]
+
+[ext_resource type="PackedScene" uid="uid://dwtao6k1jgatp" path="res://Scenes/Game/presentScene.tscn" id="1_eiwby"]
 
 [node name="GameWorld" type="Node2D"]
+
+[node name="MainLevel" parent="." instance=ExtResource("1_eiwby")]
